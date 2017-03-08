@@ -1,0 +1,10 @@
+[{ "id": 0, "name": "Bacon & Eggs" , "category" : "breakfast"},
+ { "id": 1, "name": "French Toast", "category" : "breakfast" },
+ { "id": 2, "name": "Bagels+", "category" : "breakfast" },
+ { "id": 3, "name": "Pancakes" , "category" : "breakfast"},
+ { "id": 4, "name": "Oatmeal Cereal" , "category" : "breakfast"},
+ { "id": 5, "name": "Turkey sandwich" , "category" : "lunch"},
+ { "id": 6, "name": "Pizza slice" , "category" : "lunch"},
+ { "id": 7, "name": "Hamburgers" , "category" : "dinner" },
+ { "id": 8, "name": "Calzone" , "category" : "dinner"},
+ { "id": 9, "name": "Turkey and greens" , "category" : "dinner"}]
