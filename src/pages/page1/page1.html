@@ -3,16 +3,55 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page One</ion-title>
+    <ion-title>Mio Menu Items</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let mioItem of mioData | async; let i = index;" #selectedItem (click)="itemTapped($event, mioItem)">
+      <!--<ion-icon [name]="item.icon" item-left></ion-icon>-->
+      {{mioItem.name}}
+      <div class="item-note" item-right>
+        {{mioItem.category}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.name}}</b>
+  </div>
+</ion-content>
+
+<!--<ion-content padding>
+   
+
+
+
+  <ul>
+        <li class="title">
+            <span class="title-float-left"> Name </span> <span class="title-float-right">Seat </span>
+        </li>
+
+        <li *ngFor="let mioItem of mioData | async; let i = index;" #selectedItem (click)="onSelect($event, mioItem)">
+          
+           {{mioItem.name}} {{mioItem.category}}
+             
+          
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+ 
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+</ion-content>-->

@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 //mport { Http, URLSearchParams, Response, Headers, RequestOptions, Jsonp } from "@angular/http";
 import { Http } from "@angular/http";
 
-//import { Observable } from 'rxjs/Observable';
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/do';
 
 
 //import { Hero } from './hero';
@@ -16,7 +18,7 @@ import { Http } from "@angular/http";
 export class HeroService {
 
   public API_KEY: string = '';
-  public API_URL: string = 'build/model/data.json';
+  public API_URL: string = 'data/data.json';
   public params: string;
   public pageSize: number = 50;
   public requestUrl: string;
@@ -54,16 +56,27 @@ export class HeroService {
     return this.randomInit;
   }
 
-  fetch() {
+    fetch(): Observable<any> {
 
-    //  let self = this;
+        console.log("^^^^ fetch???");
+    //    return this.http.get(`${this.API_PATH}/localedata`)
+     return this.http.get(this.requestUrl)
+            //   .do (c => console.info (c.json() ) )
+            .map(res => res.json() || [])
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
-    console.info("url req.. " + this.requestUrl);
-    // return this.http.get('http://localhost:8100/build/model/data.json');
+    }
 
-    return this.http.get(this.requestUrl);
+  // fetch():Observable<any> {
 
-  }
+  //   //  let self = this;
+
+  //   console.info("url req.. " + this.requestUrl);
+  //   // return this.http.get('http://localhost:8100/build/model/data.json');
+
+  //   return this.http.get(this.requestUrl);
+
+  // }
 
 
 
