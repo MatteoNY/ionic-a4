@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { HeroService } from '../../app/model/hero.service';
 
+import { SettingsPage } from '../../pages/settings/settings';
+
 @Component({
   selector: 'page-page1',
   templateUrl: 'page1.html'
@@ -38,9 +40,14 @@ onSelect(e:Event, selectedItem:any):void {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Page1, {
+    // this.navCtrl.push(Page1, {
+    //   item: item
+    // });
+
+  this.navCtrl.push(SettingsPage, {
       item: item
     });
+
   }
 
 

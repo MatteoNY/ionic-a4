@@ -2,16 +2,20 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
  
 import { HeroService } from './model/hero.service';
+import { MioService } from './model/mio.service';
 
 import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { SettingsPage } from '../pages/settings/settings';
+
 
 @NgModule({
   declarations: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    SettingsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,8 +24,9 @@ import { Page2 } from '../pages/page2/page2';
   entryComponents: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    SettingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, HeroService ]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, HeroService, MioService ]
 })
 export class AppModule {}

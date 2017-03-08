@@ -1,0 +1,65 @@
+<!-- SETTINGS: 2016-02-09 (C) M.CARBONE    -->
+<!--<ion-navbar *navbar>
+  <ion-title>Settings</ion-title>
+</ion-navbar>
+
+<ion-navbar *navbar hideBackButton>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>SETTINGS</ion-title>
+
+ <ion-buttons end>
+    <button (click)="onSubmit($event)">Save</button>
+  </ion-buttons>
+
+</ion-navbar>-->
+
+ 
+ 
+
+<ion-header>
+ 
+<ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      Back
+    </button>
+   
+    <ion-title class="center" >SETTINGS</ion-title>
+     <ion-buttons end>
+    <button (click)="onSubmit($event)">Save</button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="settings">
+
+<!--??? {{mySettings | json}}-->
+
+<p>
+   Select the items you'd like to view on your weekly menu. 
+</p>
+
+<h1>
+
+</h1>
+  <!--<ion-list>
+    <ion-list-header>
+      Select the items you'd like to view on your weekly menu. 
+    </ion-list-header>
+  </ion-list>-->
+
+<ion-list *ngFor="let item of mySettings; let i = index;">
+
+  <ion-item>
+    <ion-label>{{item.name}}</ion-label>
+    <ion-toggle 
+    [(ngModel)]="mySettings[i].isChecked" checked="{{mySettings[i].isChecked}}"  >
+    </ion-toggle>
+  </ion-item>
+</ion-list>
+
+
+</ion-content>
